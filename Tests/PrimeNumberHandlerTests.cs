@@ -11,7 +11,7 @@ namespace Tests
         [Test]
         public void CheckIfPrime_GivenZero_ReturnsFalse()
         {
-            PrimeNumberHandler sut = new PrimeNumberHandler();
+            PrimeHandler sut = new PrimeHandler();
             Assert.IsFalse(sut.CheckIfPrime(0));
             
         }
@@ -19,7 +19,7 @@ namespace Tests
         [Test]
         public void CheckIfPrime_GivenOne_ReturnsFalse()
         {
-            PrimeNumberHandler sut = new PrimeNumberHandler();
+            PrimeHandler sut = new PrimeHandler();
             Assert.IsFalse(sut.CheckIfPrime(1));
 
         }
@@ -27,7 +27,7 @@ namespace Tests
         [Test]
         public void CheckIfPrime_GivenListOfSmallPrimeNumbers_ReturnsTrueForEveryNumber()
         {
-            PrimeNumberHandler sut = new PrimeNumberHandler();
+            PrimeHandler sut = new PrimeHandler();
             List<int> smallPrimeNumbers = new List<int> { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37};
             
             foreach(int num in smallPrimeNumbers)
@@ -40,7 +40,7 @@ namespace Tests
         [Test]
         public void CheckIfPrime_GivenListOfBigPrimeNumbers_ReturnsTrueForEveryNumber()
         {
-            PrimeNumberHandler sut = new PrimeNumberHandler();
+            PrimeHandler sut = new PrimeHandler();
             List<int> bigPrimeNumbers = new List<int> { 100057, 102233, 202481, 200899, 302563, 1000099 };
 
             foreach (int num in bigPrimeNumbers)
@@ -53,7 +53,7 @@ namespace Tests
         [Test]
         public void CheckIfPrime_GivenListOfCompositeNumbers_ReturnsFalseForEveryNumber()
         {
-            PrimeNumberHandler sut = new PrimeNumberHandler();
+            PrimeHandler sut = new PrimeHandler();
             List<int> compositeNumbers = new List<int> { 4, 6, 8, 10, 20, 25, 30 };
             foreach (int num in compositeNumbers)
             {
@@ -64,7 +64,7 @@ namespace Tests
         [Test]
         public void CheckIfPrime_GivenListOfNegativeCompositeNumbers_ReturnsFalseForEveryNumber()
         {
-            PrimeNumberHandler sut = new PrimeNumberHandler();
+            PrimeHandler sut = new PrimeHandler();
             List<int> negativeCompositeNumbers = new List<int> { -4, -6, -8, -10, -20, -25, -30 };
             foreach (int num in negativeCompositeNumbers)
             {
@@ -76,7 +76,7 @@ namespace Tests
         [Test]
         public void CheckIfPrime_GiveNegativeSmallPrimes_ReturnsFalseForEveryNumber()
         {
-            PrimeNumberHandler sut = new PrimeNumberHandler();
+            PrimeHandler sut = new PrimeHandler();
             List<int> smallNegativePrimeNumbers = new List<int> { -2, -3, -5, -7, -11, -13, -17, -19, -23, -29, -31, -37 };
 
             foreach (int num in smallNegativePrimeNumbers)
@@ -89,7 +89,7 @@ namespace Tests
         [Test]
         public void CheckIfPrime_GiveNegativeBigPrimes_ReturnsFalseForEveryNumber()
         {
-            PrimeNumberHandler sut = new PrimeNumberHandler();
+            PrimeHandler sut = new PrimeHandler();
             List<int> bigNegativePrimeNumbers = new List<int> { -100057, -102233, -202481, -200899, -302563, -1000099 };
 
             foreach (int num in bigNegativePrimeNumbers)
@@ -102,7 +102,7 @@ namespace Tests
         [Test]
         public void FindNextPrime_GiveSmallPrime_ReturnsNextSmallPrime()
         {
-            PrimeNumberHandler sut = new PrimeNumberHandler();
+            PrimeHandler sut = new PrimeHandler();
             sut.CheckIfPrime(5);
             Assert.AreEqual(7, sut.FindNextPrime());
         }
@@ -110,7 +110,7 @@ namespace Tests
         [Test]
         public void FindNextPrime_GiveBigPrime_ReturnsNextBigPrime()
         {
-            PrimeNumberHandler sut = new PrimeNumberHandler();
+            PrimeHandler sut = new PrimeHandler();
             sut.CheckIfPrime(1000037);
             Assert.AreEqual(1000039, sut.FindNextPrime());
         }

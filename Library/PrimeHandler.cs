@@ -4,11 +4,13 @@ using System.Collections.Generic;
 namespace Library
 {
     //This class is responsible for evaluating prime numbers.
-    public class PrimeNumberHandler
+    public class PrimeHandler
     {
+        //PROPERTIES
         private int CurrentHighestPrime { get; set; } = 0;
         public List<int> PrimeNumbers = new List<int>();
 
+        //METHODS
         public bool CheckIfPrime(int n)
         {
             //Assuming it is prime

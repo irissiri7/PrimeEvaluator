@@ -18,7 +18,7 @@ namespace PrimeProject
             Console.WriteLine("[3] Suggest next prime number");
             Console.WriteLine("[4] Exit");
 
-            PrimeNumberHandler pnh = new PrimeNumberHandler();
+            PrimeHandler pnh = new PrimeHandler();
 
             //Game loop
             bool running = true;
@@ -26,14 +26,27 @@ namespace PrimeProject
             {
                 Console.Write(">>");
                 string input = Console.ReadLine();
-                if (input == "4")
+                
+                switch (input)
                 {
-                    Console.WriteLine("Bye bye!");
-                    running = false;
-                }
-                else
-                {
-                    Console.WriteLine(InputHandler.EvaluateInput(input, pnh));
+                    case "1":
+                        Console.WriteLine("Type a number");
+                        input = Console.ReadLine();
+                        Console.WriteLine(InputHandler.CheckNumber(input, pnh));
+                        break;
+                    case "2":
+                        Console.WriteLine(InputHandler.PrintPrimeNumberList(pnh));
+                        break;
+                    case "3":
+                        Console.WriteLine(InputHandler.PrintNextPrimeNumber(pnh));
+                        break;
+                    case "4":
+                        Console.WriteLine("Bye bye!");
+                        running = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid command");
+                        break;
                 }
 
             }
@@ -45,3 +58,4 @@ namespace PrimeProject
     }
 
 }
+
