@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimeProject", "PrimeProject\PrimeProject.csproj", "{0A4B39E2-7093-4757-896A-BE0AE3EAAE73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{B0F5F107-F663-452B-A33F-679CB4819457}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{E5B1A62F-70F7-431E-B34A-CA85D325AF3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A4B39E2-7093-4757-896A-BE0AE3EAAE73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A4B39E2-7093-4757-896A-BE0AE3EAAE73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A4B39E2-7093-4757-896A-BE0AE3EAAE73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A4B39E2-7093-4757-896A-BE0AE3EAAE73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0F5F107-F663-452B-A33F-679CB4819457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0F5F107-F663-452B-A33F-679CB4819457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0F5F107-F663-452B-A33F-679CB4819457}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0F5F107-F663-452B-A33F-679CB4819457}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5B1A62F-70F7-431E-B34A-CA85D325AF3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5B1A62F-70F7-431E-B34A-CA85D325AF3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5B1A62F-70F7-431E-B34A-CA85D325AF3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5B1A62F-70F7-431E-B34A-CA85D325AF3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6A572C0-6741-4EE4-B56A-71A9C437EAF1}
+	EndGlobalSection
+EndGlobal
