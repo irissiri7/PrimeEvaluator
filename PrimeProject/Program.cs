@@ -6,6 +6,10 @@ namespace PrimeProject
 {
     class Program
     {
+        //PROPERTIES
+        public static int CurrentHighestPrime { get; set; } = 0;
+        public static List<int> PrimeNumbers { get; set; } = new List<int>();
+        
         static void Main(string[] args)
         {
             //Instructions for player
@@ -18,27 +22,27 @@ namespace PrimeProject
             Console.WriteLine("[3] Suggest next prime number");
             Console.WriteLine("[4] Exit");
 
-            PrimeHandler pnh = new PrimeHandler();
-
             //Game loop
             bool running = true;
             while (running)
             {
                 Console.Write(">>");
                 string input = Console.ReadLine();
-                
+                int updatedCurrentHighest;
                 switch (input)
                 {
                     case "1":
                         Console.WriteLine("Type a number");
                         input = Console.ReadLine();
-                        Console.WriteLine(InputHandler.CheckNumber(input, pnh));
+                        Console.WriteLine(InputHandler.CheckNumber(input, PrimeNumbers, CurrentHighestPrime, out updatedCurrentHighest));
+                        CurrentHighestPrime = updatedCurrentHighest;
                         break;
                     case "2":
-                        Console.WriteLine(InputHandler.PrintPrimeNumberList(pnh));
+                        Console.WriteLine(InputHandler.PrintPrimeNumberList(PrimeNumbers));
                         break;
                     case "3":
-                        Console.WriteLine(InputHandler.PrintNextPrimeNumber(pnh));
+                        Console.WriteLine(InputHandler.PrintNextPrimeNumber(CurrentHighestPrime, PrimeNumbers, out updatedCurrentHighest));
+                        CurrentHighestPrime = updatedCurrentHighest;
                         break;
                     case "4":
                         Console.WriteLine("Bye bye!");

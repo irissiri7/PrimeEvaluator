@@ -13,14 +13,22 @@ namespace Library
         private static string Message { get; set; }
 
         //METHODS
-        public static string CheckNumber(string input, PrimeHandler pnh)
+        public static string CheckNumber(string input, List<int> primeNumbers, int currentHighest, out int currentHighestUpdated)
         {
+            //Here we are making sure that the currentHighestUpdated per default is the currentHighest
+            //so if the number we are evaluating is not prime or is lower than currentHighest, we will not actuallt change the currentHighest
+            currentHighestUpdated = currentHighest;
             
             if (Int32.TryParse(input, out int num))
             {
-                if (pnh.CheckIfPrime(num))
+                if (PrimeEvaluator.CheckIfPrime(num))
                 {
                     Message = "Yep, that's a prime number. It's added to the list";
+                    primeNumbers.Add(num);
+                    if(num > currentHighest)
+                    {
+                        currentHighestUpdated = num;
+                    }
                 }
                 else
                 {
@@ -35,9 +43,9 @@ namespace Library
             return Message;
         }
 
-        public static string PrintPrimeNumberList(PrimeHandler pnh)
+        public static string PrintPrimeNumberList(List<int> primeNumbers)
         {
-            if (pnh.PrimeNumbers.Count == 0)
+            if (primeNumbers.Count == 0)
             {
                 Message = "The list is empty";
             }
@@ -45,7 +53,7 @@ namespace Library
             {
                 //Using Stringbuilder to mimimize memory usage when building the string.
                 StringBuilder strBld = new StringBuilder("Current prime numbers: ");
-                foreach (int num in pnh.PrimeNumbers)
+                foreach (int num in primeNumbers)
                 {
                     strBld.Append(num + ",");
                 }
@@ -56,15 +64,18 @@ namespace Library
             return Message;
         }
 
-        public static string PrintNextPrimeNumber (PrimeHandler pnh)
+        public static string PrintNextPrimeNumber (int currentHighest, List<int> primeNumbers, out int currentHighestUpdate)
         {
-            if (pnh.PrimeNumbers.Count == 0)
+            currentHighestUpdate = currentHighest;
+            if (primeNumbers.Count == 0)
             {
                 Message = "The list is empty, you must have at least one prime number in the list to use this function";
             }
             else
             {
-                int next = pnh.FindNextPrime();
+                int next = PrimeEvaluator.FindNextPrime(currentHighest);
+                primeNumbers.Add(next);
+                currentHighestUpdate = next;
                 Message = $"The next prime number would be {next}. We have added it to the list";
             }
 

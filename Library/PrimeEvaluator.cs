@@ -4,19 +4,16 @@ using System.Collections.Generic;
 namespace Library
 {
     //This class is responsible for evaluating prime numbers.
-    public class PrimeHandler
+    public static class PrimeEvaluator
     {
-        //PROPERTIES
-        private int CurrentHighestPrime { get; set; } = 0;
-        public List<int> PrimeNumbers = new List<int>();
-
-        //METHODS
-        public bool CheckIfPrime(int n)
+        
+        
+        public static bool CheckIfPrime(int n)
         {
             //Assuming it is prime
             bool isPrime = true;
             
-            //If negative number, zero or one it is automatically not prime since they are not considered to be
+            //If negative number, 0 or 1 it is automatically not prime since they are not considered to be
             if (n < 0 || n == 0 || n == 1)
             {
                 isPrime = false;
@@ -33,24 +30,16 @@ namespace Library
                     }
                 }
             }
-            if (isPrime)
-            {
-                PrimeNumbers.Add(n);
-                if(n > CurrentHighestPrime)
-                {
-                    CurrentHighestPrime = n;
-                }
-            }
-            
+
             return isPrime;
         }
 
-        public int FindNextPrime()
+        public static int FindNextPrime(int n)
         {
             bool status = false;
             
-            //Variable that will become the next prime number, starting from the current highest prime.
-            int nextPrime = CurrentHighestPrime;
+            //'n' represents the value of the current highest prime.
+            int nextPrime = n;
 
             //In this loop we are continuously increasing the 'nextPrime' by 1 until it passes our function
             //CheckIfPrime(). When it does we have found the next prime number.
@@ -62,5 +51,6 @@ namespace Library
 
             return nextPrime;
         }
+       
     }
 }
