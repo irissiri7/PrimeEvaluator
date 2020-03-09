@@ -1,19 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Library
 {
     //This class is responsible for evaluating prime numbers.
-    public static class PrimeNumberHandler
+    public class PrimeNumberHandler
     {
-        public static bool CheckIfPrime(int n)
+        private int CurrentHighestPrime { get; set; } = 0;
+        public List<int> PrimeNumbers = new List<int>();
+
+        public bool CheckIfPrime(int n)
         {
             //Assuming it is prime
-            bool result = true;
+            bool isPrime = true;
             
             //If negative number, zero or one it is automatically not prime since they are not considered to be
             if (n < 0 || n == 0 || n == 1)
             {
-                result = false;
+                isPrime = false;
             }
             else
             {
@@ -23,24 +27,31 @@ namespace Library
                 {
                     if (n % i == 0)
                     {
-                        result = false;
+                        isPrime = false;
                     }
                 }
             }
+            if (isPrime)
+            {
+                PrimeNumbers.Add(n);
+                if(n > CurrentHighestPrime)
+                {
+                    CurrentHighestPrime = n;
+                }
+            }
             
-            return result;
+            return isPrime;
         }
 
-        public static int FindNextPrime(int n)
+        public int FindNextPrime()
         {
             bool status = false;
             
-            //Variable that will become the next prime number. Parameter 'n' represents the current 
-            //highest prime number in the list
-            int nextPrime = n;
+            //Variable that will become the next prime number, starting from the current highest prime.
+            int nextPrime = CurrentHighestPrime;
 
             //In this loop we are continuously increasing the 'nextPrime' by 1 until it passes our function
-            //CheckIfPrime(). When it does we have found te next prime number.
+            //CheckIfPrime(). When it does we have found the next prime number.
             while (!status)
             {
                 nextPrime++;

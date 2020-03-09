@@ -11,82 +11,84 @@ namespace Tests
         [Test]
         public void EvaluateInput_GivenNull_ReturnsRightString()
         {
-            List<int> temp = new List<int>();
-            Assert.AreEqual("You must give a command", InputHandler.EvaluateInput(null, temp));
+            PrimeNumberHandler pnh = new PrimeNumberHandler();
+            Assert.AreEqual("You must give a command", InputHandler.EvaluateInput(null, pnh));
         }
 
         [Test]
         public void EvaluateInput_GivenInvalidCommand_ReturnsRightString()
         {
-            List<int> temp = new List<int>();
-            Assert.AreEqual("Not a valid command, please try again", InputHandler.EvaluateInput("jdgufl+!..W", temp));
+            PrimeNumberHandler pnh = new PrimeNumberHandler();
+            Assert.AreEqual("Not a valid command, please try again", InputHandler.EvaluateInput("jdgufl+!..W", pnh));
         }
 
         [Test]
         public void EvaluateInput_GivenCompositeNumber_ReturnsRightString()
         {
-            List<int> temp = new List<int>();
-            Assert.AreEqual("No, that's not a prime number", InputHandler.EvaluateInput("9", temp));
+            PrimeNumberHandler pnh = new PrimeNumberHandler();
+            Assert.AreEqual("No, that's not a prime number", InputHandler.EvaluateInput("9", pnh));
         }
 
         [Test]
         public void EvaluateInput_GivenNegativeNumber_ReturnsRightString()
         {
-            List<int> temp = new List<int>();
-            Assert.AreEqual("No, that's not a prime number", InputHandler.EvaluateInput("-7", temp));
+            PrimeNumberHandler pnh = new PrimeNumberHandler();
+            Assert.AreEqual("No, that's not a prime number", InputHandler.EvaluateInput("-7", pnh));
         }
 
         [Test]
         public void EvaluateInput_GivenPrimeNumber_ReturnsRightString()
         {
-            List<int> temp = new List<int>();
-            Assert.AreEqual("Yep, that's a prime number. It's added to the list", InputHandler.EvaluateInput("5", temp));
+            PrimeNumberHandler pnh = new PrimeNumberHandler();
+            Assert.AreEqual("Yep, that's a prime number. It's added to the list", InputHandler.EvaluateInput("5", pnh));
         }
 
         [Test]
         public void EvaluateInput_GivenPrimeNumber_AddsPrimeNumberToList()
         {
-            List<int> temp = new List<int>();
-            InputHandler.EvaluateInput("5", temp);
+            PrimeNumberHandler pnh = new PrimeNumberHandler();
+            InputHandler.EvaluateInput("5", pnh);
 
-            Assert.AreEqual(1, temp.Count);
-            Assert.AreEqual(5, temp[0]);
+            Assert.AreEqual(1, pnh.PrimeNumbers.Count);
+            Assert.AreEqual(5, pnh.PrimeNumbers[0]);
         }
 
         [Test]
         public void EvaluateInput_GivenNextCommand_ReturnsRightString()
         {
-            List<int> temp = new List<int> { 2, 3, 5 };
-            Assert.AreEqual("The next prime number would be 7. We have added it to the list", InputHandler.EvaluateInput("next", temp));
+            PrimeNumberHandler pnh = new PrimeNumberHandler();
+            pnh.CheckIfPrime(5);
+            Assert.AreEqual("The next prime number would be 7. We have added it to the list", InputHandler.EvaluateInput("next", pnh));
         }
 
         [Test]
         public void EvaluateInput_GivenNextCommandWhenListIsEmpty_ReturnsRightString()
         {
-            List<int> temp = new List<int>();
-            Assert.AreEqual("The list is empty, you must have at least one prime number in the list to use this function", InputHandler.EvaluateInput("next", temp));
+            PrimeNumberHandler pnh = new PrimeNumberHandler();
+            Assert.AreEqual("The list is empty, you must have at least one prime number in the list to use this function", InputHandler.EvaluateInput("next", pnh));
         }
 
 
         [Test]
         public void EvaluateInput_GivenPrintCommand_ReturnsRightString()
         {
-            List<int> temp = new List<int> { 2, 3, 5 };
-            Assert.AreEqual("Current prime numbers: 2,3,5,", InputHandler.EvaluateInput("print", temp));
+            PrimeNumberHandler pnh = new PrimeNumberHandler();
+            InputHandler.EvaluateInput("5", pnh);
+            Assert.AreEqual("Current prime numbers: 5,", InputHandler.EvaluateInput("print", pnh));
         }
 
         [Test]
         public void EvaluateInput_GivenPrintCommandWhenListIsEmpty_ReturnsRightString()
         {
-            List<int> temp = new List<int>();
-            Assert.AreEqual("The list is empty", InputHandler.EvaluateInput("print", temp));
+            PrimeNumberHandler pnh = new PrimeNumberHandler();
+            Assert.AreEqual("The list is empty", InputHandler.EvaluateInput("print", pnh));
         }
 
         [Test]
         public void EvaluateInput_GivenNumberWithLotsOfWhiteSpace_RemovesAllWhitespaceAndPreformsPrimeEval()
         {
-            List<int> temp = new List<int>();
-            Assert.AreEqual("Yep, that's a prime number. It's added to the list", InputHandler.EvaluateInput("   1    1", temp));
+            PrimeNumberHandler pnh = new PrimeNumberHandler();
+            Assert.AreEqual("Yep, that's a prime number. It's added to the list", InputHandler.EvaluateInput("   1    1", pnh));
         }
     }
 }
