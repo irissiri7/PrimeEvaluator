@@ -34,14 +34,14 @@ namespace PrimeProject
                     case "1":
                         Console.WriteLine("Type a number");
                         input = Console.ReadLine();
-                        Console.WriteLine(InputHandler.CheckNumber(input, PrimeNumbers, CurrentHighestPrime, out updatedCurrentHighest));
+                        Console.WriteLine(ResponseGenerator.CheckNumber(input, PrimeNumbers, CurrentHighestPrime, out updatedCurrentHighest));
                         CurrentHighestPrime = updatedCurrentHighest;
                         break;
                     case "2":
-                        Console.WriteLine(InputHandler.PrintPrimeNumberList(PrimeNumbers));
+                        Console.WriteLine(ResponseGenerator.PrintPrimeNumberList(PrimeNumbers));
                         break;
                     case "3":
-                        Console.WriteLine(InputHandler.PrintNextPrimeNumber(CurrentHighestPrime, PrimeNumbers, out updatedCurrentHighest));
+                        Console.WriteLine(ResponseGenerator.PrintNextPrimeNumber(CurrentHighestPrime, PrimeNumbers, out updatedCurrentHighest));
                         CurrentHighestPrime = updatedCurrentHighest;
                         break;
                     case "4":

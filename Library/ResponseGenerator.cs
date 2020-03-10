@@ -6,8 +6,8 @@ using System.Text.RegularExpressions;
 
 namespace Library
 {
-    //This class is responsible for handling all the console input and communicating results to user. 
-    public static class InputHandler
+    //This class is responsible for generating response to the user
+    public static class ResponseGenerator
     {
         //PROPERTIES
         private static string Message { get; set; }
@@ -16,7 +16,8 @@ namespace Library
         public static string CheckNumber(string input, List<int> primeNumbers, int currentHighest, out int currentHighestUpdated)
         {
             //Here we are making sure that the currentHighestUpdated per default is the currentHighest
-            //so if the number we are evaluating is not prime or is lower than currentHighest, we will not actuallt change the currentHighest
+            //so if the number we are evaluating is NOT prime or is LOWER than currentHighest, we will not change the value of the
+            //property CurrentHighestPrime in Program.cs
             currentHighestUpdated = currentHighest;
             
             if (Int32.TryParse(input, out int num))
