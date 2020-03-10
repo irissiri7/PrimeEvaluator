@@ -6,19 +6,18 @@ using System.Text.RegularExpressions;
 
 namespace Library
 {
-    //This class is responsible for generating response to the user
+    //This class is responsible for generating correct response to the user depending on the input and the results from PrimeEvaluator.cs
     public static class ResponseGenerator
     {
         //PROPERTIES
         private static string Message { get; set; }
 
         //METHODS
-        public static string CheckNumber(string input, List<int> primeNumbers, int currentHighest, out int currentHighestUpdated)
+        public static string CheckNumber(string input, List<int> primeNumbers, int currentHighestPrime, out int updatedCurrentHighestPrime)
         {
-            //Here we are making sure that the currentHighestUpdated per default is the currentHighest
-            //so if the number we are evaluating is NOT prime or is LOWER than currentHighest, we will not change the value of the
-            //property CurrentHighestPrime in Program.cs
-            currentHighestUpdated = currentHighest;
+            //Here we are making sure that the updatedCurrentHighestPrime per default is the currentHighestPrime. It will only change
+            //if it turns out the num we are evaluating is both prime and higher.
+            updatedCurrentHighestPrime = currentHighestPrime;
             
             if (Int32.TryParse(input, out int num))
             {
@@ -26,9 +25,9 @@ namespace Library
                 {
                     Message = "Yep, that's a prime number. It's added to the list";
                     primeNumbers.Add(num);
-                    if(num > currentHighest)
+                    if(num > currentHighestPrime)
                     {
-                        currentHighestUpdated = num;
+                        updatedCurrentHighestPrime = num;
                     }
                 }
                 else
@@ -67,7 +66,9 @@ namespace Library
 
         public static string PrintNextPrimeNumber (int currentHighest, List<int> primeNumbers, out int currentHighestUpdate)
         {
+            //Again, making sure that the default value is the current highest prime.
             currentHighestUpdate = currentHighest;
+            
             if (primeNumbers.Count == 0)
             {
                 Message = "The list is empty, you must have at least one prime number in the list to use this function";

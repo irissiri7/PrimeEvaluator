@@ -7,6 +7,10 @@ namespace PrimeProject
     class Program
     {
         //PROPERTIES
+        //I have choosen to save the current highest prime in a property so i don't have to search for it in the PrimeNumbers list.
+        //Searching in Lists can be a time consuming process (at least if the list is long O(n)). This way, the time
+        //complexity for finding the current highest prime number is constant. Keeping this number updated is easy and won't
+        //compromise performance of application.
         public static int CurrentHighestPrime { get; set; } = 0;
         public static List<int> PrimeNumbers { get; set; } = new List<int>();
         
@@ -28,21 +32,25 @@ namespace PrimeProject
             {
                 Console.Write(">>");
                 string input = Console.ReadLine();
-                int updatedCurrentHighest;
+
+                //Some methods return a new updated value for CurrentHighestPrime. This variable catches these values and is used to update the
+                //property accordingly.
+                int updatedCurrentHighestPrime;
+                
                 switch (input)
                 {
                     case "1":
                         Console.WriteLine("Type a number");
                         input = Console.ReadLine();
-                        Console.WriteLine(ResponseGenerator.CheckNumber(input, PrimeNumbers, CurrentHighestPrime, out updatedCurrentHighest));
-                        CurrentHighestPrime = updatedCurrentHighest;
+                        Console.WriteLine(ResponseGenerator.CheckNumber(input, PrimeNumbers, CurrentHighestPrime, out updatedCurrentHighestPrime));
+                        CurrentHighestPrime = updatedCurrentHighestPrime;
                         break;
                     case "2":
                         Console.WriteLine(ResponseGenerator.PrintPrimeNumberList(PrimeNumbers));
                         break;
                     case "3":
-                        Console.WriteLine(ResponseGenerator.PrintNextPrimeNumber(CurrentHighestPrime, PrimeNumbers, out updatedCurrentHighest));
-                        CurrentHighestPrime = updatedCurrentHighest;
+                        Console.WriteLine(ResponseGenerator.PrintNextPrimeNumber(CurrentHighestPrime, PrimeNumbers, out updatedCurrentHighestPrime));
+                        CurrentHighestPrime = updatedCurrentHighestPrime;
                         break;
                     case "4":
                         Console.WriteLine("Bye bye!");

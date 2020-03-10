@@ -21,7 +21,7 @@ namespace Library
             else
             {
                 //Here we are looping between 2 and 'n' to determine if the number can be evenly divided
-                //with any other number between 2 and 'n'. If it can it is not prime and result becomes false.
+                //with any other number between 2 and 'n'. If it can it is NOT prime and result becomes false.
                 for (int i = 2; i < n - 1; i++)
                 {
                     if (n % i == 0)
