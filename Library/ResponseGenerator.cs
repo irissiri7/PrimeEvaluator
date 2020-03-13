@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace Library
 {
-    //This class is responsible for generating correct response to the user depending on the input and the results from PrimeEvaluator.cs
+    //This class is responsible for generating correct response to user
     public static class ResponseGenerator
     {
         //PROPERTIES

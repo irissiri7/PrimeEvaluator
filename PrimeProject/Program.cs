@@ -7,12 +7,12 @@ namespace PrimeProject
     class Program
     {
         //PROPERTIES
-        //I have choosen to save the current highest prime in a property so i don't have to search for it in the PrimeNumbers list.
-        //Searching in Lists can be a time consuming process (at least if the list is long O(n)). This way, the time
+        //I have choosen to save the current highest prime in a property so I don't have to search for it in the PrimeNumbers list.
+        //Searching in Lists can be a time consuming process (at least if the list is long - O(n)). This way, the time
         //complexity for finding the current highest prime number is constant. Keeping this number updated is easy and won't
         //compromise performance of application.
-        public static int CurrentHighestPrime { get; set; } = 0;
-        public static List<int> PrimeNumbers { get; set; } = new List<int>();
+        public static int CurrentHighestPrime { get; private set; } = 0;
+        public static List<int> PrimeNumbers { get; private set; } = new List<int>();
         
         static void Main(string[] args)
         {

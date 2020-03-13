@@ -7,7 +7,6 @@ namespace Library
     public static class PrimeEvaluator
     {
         
-        
         public static bool CheckIfPrime(int n)
         {
             //Assuming it is prime
