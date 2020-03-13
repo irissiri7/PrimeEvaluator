@@ -33,8 +33,8 @@ namespace PrimeProject
                 Console.Write(">>");
                 string input = Console.ReadLine();
 
-                //Some methods return a new updated value for CurrentHighestPrime. This variable catches these values and is used to update the
-                //property accordingly.
+                //Some methods return a new updated value for CurrentHighestPrime. This variable catches these 
+                //values and is used to update the property accordingly.
                 int updatedCurrentHighestPrime;
                 
                 switch (input)
